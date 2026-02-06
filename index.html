@@ -344,8 +344,9 @@
             margin-bottom: 0.5rem;
         }
 
-        .vitrine-bottom{
-            margin-bottom: 200px !important;
+        .imagem-escura {
+            filter: brightness(0%);
+            /* 0% é preto, 100% é normal */
         }
     </style>
     <script type="importmap">
@@ -416,7 +417,7 @@
             </div>
 
             <div class="flex flex-col sm:flex-row gap-4 items-center w-full px-6 sm:px-0 sm:w-auto">
-                <a href="https://wa.me/5511999999999"
+                <a href="https://wa.me/82987797962"
                     class="btn-primary w-full sm:w-auto px-8 py-4 rounded-xl font-bold text-sm md:text-lg flex items-center justify-center gap-3 group">
                     QUERO UM SITE PROFISSIONAL
                     <i class="fa-brands fa-whatsapp text-xl group-hover:scale-110 transition-transform"></i>
@@ -454,27 +455,26 @@
 
     <!-- SEÇÃO 3: Vitrine -->
     <section id="vitrine" class="py-24 md:py-32 px-6 md:px-12 bg-[#050a0a] reveal">
-        <div class="vitrine-bottom  max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-12 md:gap-20 items-center">
+        <div class="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-12 md:gap-20 items-center">
             <!-- Coluna da Imagem com Badges (Ajustada a Proporção Vertical) -->
-             
             <div class="relative order-2 lg:order-1 h-full">
-                 <img src="/assets/A VITRINE DO SEU NEGÓCIO.jpg" alt="Clientes Satisfeitos">
-
                 <div class="absolute -inset-10 bg-teal-500/5 blur-[100px] rounded-full pointer-events-none"></div>
                 <!-- Container da imagem com aspect-ratio fixo para ser mais vertical e equilibrar com o texto -->
                 <div
-                   
+                    class="relative rounded-2xl md:rounded-3xl overflow-hidden border border-white/10 shadow-2xl aspect-[4/5] lg:aspect-[3/3.8]">
+                    <img src="https://images.unsplash.com/photo-1516321318423-f06f85e504b3?auto=format&fit=crop&q=80&w=1000"
+                        alt="Clientes Satisfeitos" class="w-full h-full object-cover" class="imagem-escura">
 
-                    <!--  Floating Badge 1: Clientes -->
+                    <!-- Floating Badge 1: Clientes -->
                     <div
-                        class="absolute top-[15%] left-[20%] glass-card px-3 py-3 md:px-4 md:py-3 rounded-lg border border-white/20 flex items-center gap-2 float-animation">
+                        class="absolute top-[35%] left-[10%] glass-card px-3 py-1.5 md:px-4 md:py-2 rounded-lg border border-white/20 flex items-center gap-2 float-animation">
                         <span class="text-teal-400 font-bold text-xs md:text-sm">+</span>
                         <span
                             class="text-[9px] md:text-[11px] font-bold tracking-wider text-gray-200 uppercase">Clientes</span>
                     </div>
 
                     <!-- Floating Badge 2: Visitantes -->
-                    <div class="absolute top-[28%] right-[10%] glass-card px-3 py-3 md:px-4 md:py-3 rounded-lg border border-white/20 flex items-center gap-2 float-animation"
+                    <div class="absolute top-[28%] right-[10%] glass-card px-3 py-1.5 md:px-4 md:py-2 rounded-lg border border-white/20 flex items-center gap-2 float-animation"
                         style="animation-delay: 1s;">
                         <span class="text-teal-400 font-bold text-xs md:text-sm">+</span>
                         <span
@@ -482,7 +482,7 @@
                     </div>
 
                     <!-- Floating Badge 3: Faturamento -->
-                    <div class="absolute bottom-[30%] right-[15%] glass-card px-3 py-3 md:px-4 md:py-3 rounded-lg border border-white/20 flex items-center gap-2 float-animation"
+                    <div class="absolute bottom-[30%] right-[30%] glass-card px-3 py-1.5 md:px-4 md:py-2 rounded-lg border border-white/20 flex items-center gap-2 float-animation"
                         style="animation-delay: 2s;">
                         <span class="text-teal-400 font-bold text-xs md:text-sm">+</span>
                         <span
@@ -490,7 +490,7 @@
                     </div>
 
                     <!-- Floating Badge 4: ROI -->
-                    <div class="absolute bottom-[45%] left-[20%] glass-card px-3 py-3 md:px-4 md:py-3 rounded-lg border border-white/20 flex items-center gap-2 float-animation"
+                    <div class="absolute bottom-[20%] left-[20%] glass-card px-3 py-1.5 md:px-4 md:py-2 rounded-lg border border-white/20 flex items-center gap-2 float-animation"
                         style="animation-delay: 1.5s;">
                         <span class="text-teal-400 font-bold text-xs md:text-sm">+</span>
                         <span
@@ -827,7 +827,7 @@
                     Analiso seu negócio e te digo exatamente o que você precisa.
                 </p>
 
-                <a href="https://wa.me/5511999999999"
+                <a href="https://wa.me/82987797962"
                     class="btn-primary inline-flex items-center gap-4 px-10 py-5 rounded-2xl font-bold text-lg group">
                     ME AJUDE A ESCOLHER
                     <i class="fa-brands fa-whatsapp text-2xl transition-transform group-hover:scale-110"></i>
@@ -924,7 +924,7 @@
                             </div>
                         </div>
 
-                        <a href="https://wa.me/5511999999999"
+                        <a href="https://wa.me/82987797962"
                             class="btn-primary w-full py-5 rounded-2xl font-bold text-center">VALIDAR ESSA PROJEÇÃO</a>
                     </div>
 
@@ -995,7 +995,7 @@
 
             <!-- Botão CTA Abaixo -->
             <div class="mt-20 flex justify-center">
-                <a href="https://wa.me/5511999999999"
+                <a href="https://wa.me/82987797962"
                     class="btn-primary px-10 py-5 rounded-2xl font-bold text-lg flex items-center gap-4 group shadow-[0_0_40px_rgba(79,209,197,0.3)] transition-all hover:scale-[1.05]">
                     QUERO UM SITE PROFISSIONAL <i class="fa-brands fa-whatsapp text-2xl"></i>
                 </a>
@@ -1022,9 +1022,9 @@
 
                     <div class="mb-10">
                         <div class="text-white text-3xl md:text-4xl font-black mb-1">
-                            <span class="text-teal-400">12x de R$ 26,04</span>
+                            <span class="text-teal-400">12x de 39</span>
                         </div>
-                        <div class="text-gray-500 text-sm">ou R$ 297 à vista.</div>
+                        <div class="text-gray-500 text-sm">ou 479 à vista.</div>
                     </div>
 
                     <ul class="space-y-4 mb-12 flex-grow">
@@ -1047,10 +1047,10 @@
                     </ul>
 
                     <div class="flex items-center gap-2 text-teal-400 font-bold text-sm mb-8">
-                        <i class="fa-regular fa-clock"></i>Prazo: 2 a 3 dias úteis
+                        <i class="fa-regular fa-clock"></i> ⏱ Prazo: 2 a 3 dias úteis
                     </div>
 
-                    <a href="https://wa.me/5511999999999"
+                    <a href="https://wa.me/82987797962"
                         class="w-full py-4 bg-white/5 border border-white/10 rounded-2xl font-bold text-center transition-all">CONTRATAR
                         AGORA</a>
                 </div>
@@ -1066,9 +1066,9 @@
 
                     <div class="mb-10">
                         <div class="text-white text-3xl md:text-4xl font-black mb-1">
-                            <span class="text-teal-400">12x de R$ 52,35</span>
+                            <span class="text-teal-400">12x de 74</span>
                         </div>
-                        <div class="text-gray-500 text-sm">ou R$ 597 à vista.</div>
+                        <div class="text-gray-500 text-sm">ou 897 à vista.</div>
                     </div>
 
                     <ul class="space-y-4 mb-12 flex-grow">
@@ -1095,10 +1095,10 @@
                     </ul>
 
                     <div class="flex items-center gap-2 text-teal-400 font-bold text-sm mb-8">
-                        <i class="fa-regular fa-clock"></i>Prazo: 7 a 10 dias úteis
+                        <i class="fa-regular fa-clock"></i> ⏱ Prazo: 7 a 10 dias úteis
                     </div>
 
-                    <a href="https://wa.me/5511999999999"
+                    <a href="https://wa.me/82987797962"
                         class="btn-primary w-full py-4 rounded-2xl font-bold text-center transition-all">CONTRATAR
                         AGORA</a>
                 </div>
@@ -1112,9 +1112,9 @@
 
                     <div class="mb-10">
                         <div class="text-white text-3xl md:text-4xl font-black mb-1">
-                            <span class="text-teal-400">12x de R$ 192,85</span>
+                            <span class="text-teal-400">12x de 149</span>
                         </div>
-                        <div class="text-gray-500 text-sm">ou R$ 2199 à vista.</div>
+                        <div class="text-gray-500 text-sm">ou 1799 à vista.</div>
                     </div>
 
                     <ul class="space-y-4 mb-12 flex-grow">
@@ -1137,10 +1137,10 @@
                     </ul>
 
                     <div class="flex items-center gap-2 text-teal-400 font-bold text-sm mb-8">
-                        <i class="fa-regular fa-clock"></i>Prazo: 10 a 15 dias úteis
+                        <i class="fa-regular fa-clock"></i> ⏱ Prazo: 10 a 15 dias úteis
                     </div>
 
-                    <a href="https://wa.me/5511999999999"
+                    <a href="https://wa.me/82987797962"
                         class="w-full py-4 bg-white/5 border border-white/10 rounded-2xl font-bold text-center transition-all">CONTRATAR
                         AGORA</a>
                 </div>
@@ -1185,7 +1185,7 @@
                 </div>
             </div>
 
-            <a href="https://wa.me/5511999999999"
+            <a href="https://wa.me/82987797962"
                 class="btn-bonus px-10 py-5 rounded-2xl font-bold text-lg flex items-center gap-4 group">
                 QUERO APROVEITAR O BÔNUS <i
                     class="fa-brands fa-whatsapp text-2xl group-hover:scale-110 transition-transform"></i>
@@ -1202,10 +1202,11 @@
                 <h2 class="text-3xl md:text-5xl font-extrabold tracking-tight">Dúvidas Frequentes</h2>
             </div>
             <div class="space-y-4">
+
                 <!-- FAQ Item 1 -->
                 <div class="faq-item rounded-2xl overflow-hidden cursor-pointer" onclick="toggleFaq(this)">
                     <div class="p-6 md:p-8 flex justify-between items-center">
-                        <h3 class="text-lg md:text-xl font-bold text-white">Em quanto tempo fica pronta a
+                        <h3 class="text-lg md:text-xl font-bold text-white ">Em quanto tempo fica pronta a
                             landing page?</h3>
                         <div class="faq-icon text-teal-400"><i class="fa-solid fa-chevron-down"></i></div>
                     </div>
@@ -1214,6 +1215,7 @@
                             úteis, após o envio das informações e confirmação do pagamento.</p>
                     </div>
                 </div>
+
                 <!-- FAQ Item 2 -->
                 <div class="faq-item rounded-2xl overflow-hidden cursor-pointer" onclick="toggleFaq(this)">
                     <div class="p-6 md:p-8 flex justify-between items-center">
@@ -1226,10 +1228,11 @@
                             úteis, pois envolve mais páginas, estrutura e ajustes.</p>
                     </div>
                 </div>
+
                 <!-- FAQ Item 3 -->
                 <div class="faq-item rounded-2xl overflow-hidden cursor-pointer" onclick="toggleFaq(this)">
                     <div class="p-6 md:p-8 flex justify-between items-center">
-                        <h3 class="text-lg md:text-xl font-bold text-white">Como funciona o pagamento?</h3>
+                        <h3 class="text-lg md:text-xl font-bold text-white ">Como funciona o pagamento?</h3>
                         <div class="faq-icon text-teal-400"><i class="fa-solid fa-chevron-down"></i></div>
                     </div>
                     <div class="faq-content px-6 md:px-8">
@@ -1237,10 +1240,11 @@
                             projeto e 50% na entrega da landing page ou site.</p>
                     </div>
                 </div>
+
                 <!-- FAQ Item 4 -->
                 <div class="faq-item rounded-2xl overflow-hidden cursor-pointer" onclick="toggleFaq(this)">
                     <div class="p-6 md:p-8 flex justify-between items-center">
-                        <h3 class="text-lg md:text-xl font-bold text-white">Posso usar a landing page para anúncios?
+                        <h3 class="text-lg md:text-xl font-bold text-white ">Posso usar a landing page para anúncios?
                         </h3>
                         <div class="faq-icon text-teal-400"><i class="fa-solid fa-chevron-down"></i></div>
                     </div>
@@ -1249,22 +1253,23 @@
                             tráfego pago.</p>
                     </div>
                 </div>
+
                 <!-- FAQ Item 5 -->
                 <div class="faq-item rounded-2xl overflow-hidden cursor-pointer" onclick="toggleFaq(this)">
                     <div class="p-6 md:p-8 flex justify-between items-center">
-                        <h3 class="text-lg md:text-xl font-bold text-white">A landing page tem SEO para o Google?</h3>
+                        <h3 class="text-lg md:text-xl font-bold text-white ">A landing page tem SEO para o Google?</h3>
                         <div class="faq-icon text-teal-400"><i class="fa-solid fa-chevron-down"></i></div>
                     </div>
                     <div class="faq-content px-6 md:px-8">
                         <p class="text-gray-400 leading-relaxed">Sim, possui SEO básico aplicado (estrutura, títulos e
-                            performance).
-                            O foco principal é converter tráfego, não ranqueamento orgânico.</p>
+                            performance). O foco principal é converter tráfego, não ranqueamento orgânico.</p>
                     </div>
                 </div>
+
                 <!-- FAQ Item 6 -->
                 <div class="faq-item rounded-2xl overflow-hidden cursor-pointer" onclick="toggleFaq(this)">
                     <div class="p-6 md:p-8 flex justify-between items-center">
-                        <h3 class="text-lg md:text-xl font-bold text-white">A landing page é otimizada para celular?
+                        <h3 class="text-lg md:text-xl font-bold text-white ">A landing page é otimizada para celular?
                         </h3>
                         <div class="faq-icon text-teal-400"><i class="fa-solid fa-chevron-down"></i></div>
                     </div>
@@ -1273,10 +1278,11 @@
                             primeiro para celular, onde vem a maioria das vendas.</p>
                     </div>
                 </div>
+
                 <!-- FAQ Item 7 -->
                 <div class="faq-item rounded-2xl overflow-hidden cursor-pointer" onclick="toggleFaq(this)">
                     <div class="p-6 md:p-8 flex justify-between items-center">
-                        <h3 class="text-lg md:text-xl font-bold text-white">O que exatamente está incluso na landing
+                        <h3 class="text-lg md:text-xl font-bold text-white ">O que exatamente está incluso na landing
                             page?</h3>
                         <div class="faq-icon text-teal-400"><i class="fa-solid fa-chevron-down"></i></div>
                     </div>
@@ -1286,28 +1292,31 @@
                         </p>
                     </div>
                 </div>
+
                 <!-- FAQ Item 8 -->
                 <div class="faq-item rounded-2xl overflow-hidden cursor-pointer" onclick="toggleFaq(this)">
                     <div class="p-6 md:p-8 flex justify-between items-center">
-                        <h3 class="text-lg md:text-xl font-bold text-white">Posso pedir alterações?</h3>
+                        <h3 class="text-lg md:text-xl font-bold text-white ">Posso pedir alterações?</h3>
                         <div class="faq-icon text-teal-400"><i class="fa-solid fa-chevron-down"></i></div>
                     </div>
                     <div class="faq-content px-6 md:px-8">
                         <p class="text-gray-400 leading-relaxed">Sim. Cada pacote inclui uma quantidade definida de
-                            ajustes.
-                            Alterações fora do escopo podem ser cobradas à parte.</p>
+                            ajustes. Alterações fora do escopo podem ser cobradas à parte.</p>
                     </div>
                 </div>
-                <!-- FAQ Item 8 -->
+
+                <!-- FAQ Item 9 -->
                 <div class="faq-item rounded-2xl overflow-hidden cursor-pointer" onclick="toggleFaq(this)">
                     <div class="p-6 md:p-8 flex justify-between items-center">
-                        <h3 class="text-lg md:text-xl font-bold text-white">Como faço para contratar?</h3>
+                        <h3 class="text-lg md:text-xl font-bold text-white ">Como faço para contratar?</h3>
                         <div class="faq-icon text-teal-400"><i class="fa-solid fa-chevron-down"></i></div>
                     </div>
                     <div class="faq-content px-6 md:px-8">
-                        <p class="text-gray-400 leading-relaxed">É só me chamar no WhatsApp com a palavra PÁGINA.</p>
+                        <p class="text-gray-400 leading-relaxed">É só me chamar no WhatsApp com a palavra PÁGINA ou SITE
+                            INSTITUCIONAL.</p>
                     </div>
                 </div>
+
             </div>
         </div>
     </section>
