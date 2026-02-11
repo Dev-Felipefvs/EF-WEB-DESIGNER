@@ -26,6 +26,176 @@
             cursor: auto;
         }
 
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #050a0a;
+            color: white;
+            margin: 0;
+            padding: 0;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        /* --- Sliders mais Naturais --- */
+        input[type=range] {
+            -webkit-appearance: none;
+            background: transparent;
+            height: 6px;
+            border-radius: 5px;
+            cursor: pointer;
+            position: relative;
+            outline: none;
+        }
+
+        input[type=range]::-webkit-slider-runnable-track {
+            width: 100%;
+            height: 6px;
+            background: #374151;
+            border-radius: 5px;
+        }
+
+        input[type=range]::-webkit-slider-thumb {
+            -webkit-appearance: none;
+            height: 24px;
+            width: 24px;
+            border-radius: 50%;
+            background: #2dd4bf;
+            /* Teal Neon */
+            margin-top: -9px;
+            /* Glow mais suave e sem borda dura para parecer mais natural */
+            box-shadow: 0 0 20px rgba(45, 212, 191, 0.6);
+            border: none;
+            transition: transform 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        input[type=range]::-webkit-slider-thumb:hover {
+            transform: scale(1.2);
+            box-shadow: 0 0 30px rgba(45, 212, 191, 0.8);
+        }
+
+        /* --- Utilitários --- */
+        .glass-card {
+            background: rgba(255, 255, 255, 0.03);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+        }
+
+        .reveal {
+            animation: fadeIn 0.8s ease-out forwards;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Botão Primário */
+        .btn-primary {
+            background: linear-gradient(to right, #2dd4bf, #0d9488);
+            color: #050a0a;
+            transition: all 0.3s ease;
+            box-shadow: 0 0 20px rgba(45, 212, 191, 0.3);
+            text-shadow: 0 1px 0 rgba(255, 255, 255, 0.2);
+        }
+
+        .btn-primary:hover {
+            box-shadow: 0 0 35px rgba(45, 212, 191, 0.5);
+            transform: translateY(-2px);
+            background: linear-gradient(to right, #5eead4, #14b8a6);
+        }
+
+        /* Indicador do Botão de Opção */
+        .option-indicator {
+            transition: all 0.3s ease;
+            border: 2px solid rgba(255, 255, 255, 0.2);
+            background: transparent;
+        }
+
+        .project-btn.active .option-indicator {
+            border-color: #2dd4bf;
+            background: #2dd4bf;
+            box-shadow: 0 0 10px rgba(45, 212, 191, 0.6);
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #050a0a;
+            color: white;
+            margin: 0;
+        }
+
+        /* --- CSS Para os Sliders (Input Range) --- */
+        input[type=range] {
+            -webkit-appearance: none;
+            background: transparent;
+            height: 6px;
+            border-radius: 5px;
+            cursor: pointer;
+            position: relative;
+        }
+
+        /* O trilho do slider */
+        input[type=range]::-webkit-slider-runnable-track {
+            width: 100%;
+            height: 6px;
+            background: #374151;
+            /* Cinza escuro */
+            border-radius: 5px;
+        }
+
+        /* A bolinha do slider */
+        input[type=range]::-webkit-slider-thumb {
+            -webkit-appearance: none;
+            height: 24px;
+            width: 24px;
+            border-radius: 50%;
+            background: #2dd4bf;
+            /* Verde Teal */
+            margin-top: -9px;
+            /* Centraliza verticalmente */
+            box-shadow: 0 0 15px rgba(45, 212, 191, 0.5);
+            /* Glow neon */
+            transition: transform 0.1s;
+        }
+
+        input[type=range]::-webkit-slider-thumb:hover {
+            transform: scale(1.1);
+        }
+
+        /* Utilitários de Vidro e Animação */
+        .glass-card {
+            background: rgba(255, 255, 255, 0.03);
+            backdrop-filter: blur(10px);
+        }
+
+        .reveal {
+            opacity: 1;
+            transform: translateY(0);
+            transition: all 0.8s ease;
+        }
+
+        /* Estilo do botão primário para garantir o gradiente */
+        .btn-primary {
+            background: linear-gradient(to right, #2dd4bf, #0d9488);
+            color: #050a0a;
+            transition: all 0.3s ease;
+            box-shadow: 0 0 20px rgba(45, 212, 191, 0.3);
+        }
+
+        .btn-primary:hover {
+            box-shadow: 0 0 30px rgba(45, 212, 191, 0.6);
+            transform: translateY(-2px);
+        }
+
         /* Glassmorphism Effect */
         .glass-card {
             background: rgba(255, 255, 255, 0.03);
@@ -349,15 +519,7 @@
             /* 0% é preto, 100% é normal */
         }
     </style>
-    <script type="importmap">
-{
-  "imports": {
-    "react": "https://esm.sh/react@^19.2.4",
-    "react/": "https://esm.sh/react@^19.2.4/",
-    "@google/genai": "https://esm.sh/@google/genai"
-  }
-}
-</script>
+
 </head>
 
 <body>
@@ -416,12 +578,52 @@
                     resultados.</p>
             </div>
 
-            <div class="flex flex-col sm:flex-row gap-4 items-center w-full px-6 sm:px-0 sm:w-auto">
-                <a href="https://wa.me/82987797962"
-                    class="btn-primary w-full sm:w-auto px-8 py-4 rounded-xl font-bold text-sm md:text-lg flex items-center justify-center gap-3 group">
-                    QUERO UM SITE PROFISSIONAL
-                    <i class="fa-brands fa-whatsapp text-xl group-hover:scale-110 transition-transform"></i>
+
+            <!-- Container dos Botões -->
+            <div class="flex flex-col md:flex-row gap-8 items-center">
+
+                <!-- --- INICIO CODIGO BOTAO 1 --- -->
+                <a class="group relative flex items-center justify-center gap-2 px-8 py-4 rounded-xl font-bold text-sm tracking-wide uppercase text-[#0f2a2a] transition-all duration-300 ease-out transform hover:-translate-y-1 active:translate-y-0 cursor-pointer bg-gradient-to-r from-[#67e8f9] to-[#5eead4] shadow-[0_0_20px_-5px_rgba(45,212,191,0.6)] hover:shadow-[0_0_30px_-5px_rgba(45,212,191,0.9)] border-b-4 border-b-[#2dd4bf]/40"
+                    href="https://wa.me/82987797962?text=Oi!%20Vim%20pela%20sua%20p%C3%A1gina%20e%20quero%20um%20Orçamento%20para%20meu%20neg%C3%B3cio."
+                    target="_blank">
+                    Quero um Orçamento
+
+                    <!-- Ícone WhatsApp SVG -->
+                    <svg viewBox="0 0 24 24" width="20" height="20" stroke="currentColor" stroke-width="1.5" fill="none"
+                        stroke-linecap="round" stroke-linejoin="round" class="w-5 h-5">
+                        <path
+                            d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z">
+                        </path>
+                    </svg>
+
+                    <!-- Efeito de Brilho (Overlay) -->
+                    <div
+                        class="absolute inset-0 rounded-xl bg-white/20 opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none">
+                    </div>
                 </a>
+                <!-- --- FIM CODIGO BOTAO 1 --- -->
+
+
+                <!-- --- INICIO CODIGO BOTAO 2 --- -->
+                <div
+                    class="group relative p-[1.5px] rounded-xl bg-gradient-to-r from-[#2dd4bf] to-[#60a5fa] shadow-[0_0_15px_-3px_rgba(96,165,250,0.3)] hover:shadow-[0_0_20px_-3px_rgba(96,165,250,0.5)] transition-shadow duration-300 cursor-pointer inline-block">
+
+                    <a class="relative w-full h-full flex items-center justify-center gap-2 px-8 py-4 rounded-[10px] bg-[#131d2e] font-bold text-sm tracking-wide uppercase text-[#67e8f9] transition-all duration-300 group-hover:bg-[#1e293b]"
+                        href="https://wa.me/82987797962?text=Oi!%20Vim%20pela%20sua%20p%C3%A1gina%20e%20quero%20um%20Diagn%C3%B3stico%20Gratuito%20para%20meu%20neg%C3%B3cio."
+                        target="_blank">
+                        Diagnóstico Gratuito
+
+
+                        <!-- Ícone Seta SVG -->
+                        <svg viewBox="0 0 24 24" width="20" height="20" stroke="currentColor" stroke-width="2"
+                            fill="none" stroke-linecap="round" stroke-linejoin="round" class="w-5 h-5">
+                            <line x1="7" y1="17" x2="17" y2="7"></line>
+                            <polyline points="7 7 17 7 17 17"></polyline>
+                        </svg>
+                    </a>
+                </div>
+                <!-- --- FIM CODIGO BOTAO 2 --- -->
+
             </div>
         </div>
 
@@ -764,8 +966,8 @@
                     </div>
 
                     <div class="p-6 bg-white/5 rounded-2xl border border-white/5 mb-8">
-                        <p class="text-sm text-gray-300 italic">"Se você quer vender um product ou serviço específico
-                            hoje, esta é a sua escolha."</p>
+                        <p class="text-sm text-gray-300 italic">Se você quer vender um produto ou serviço específico,
+                            esta é a sua escolha.</p>
                     </div>
                 </div>
 
@@ -804,8 +1006,8 @@
                     </div>
 
                     <div class="p-6 bg-white/5 rounded-2xl border border-white/5 mb-8">
-                        <p class="text-sm text-gray-300 italic">"Se você quer construir uma marca forte e ser encontrado
-                            por clientes que pesquisam seu nome."</p>
+                        <p class="text-sm text-gray-300 italic">Se você quer construir uma marca forte e ser encontrado
+                            por clientes que pesquisam seu nome, esta é a sua escolha.</p>
                     </div>
                 </div>
             </div>
@@ -818,16 +1020,12 @@
                     QUAL ESCOLHER?</div>
                 <h3 class="text-2xl md:text-3xl font-bold mb-6">Ainda na dúvida sobre a melhor estratégia?</h3>
                 <p class="text-gray-400 text-lg mb-10 leading-relaxed">
-                    Não jogue dinheiro fora com a ferramenta errada. Se o seu objetivo é <span
-                        class="text-white font-semibold">vender agora</span>, escolha a Landing Page. Se é <span
-                        class="text-white font-semibold">construir autoridade</span> a longo prazo, o Site Institucional
-                    é o caminho.
-                    <br><br>
                     <span class="text-teal-400 font-bold">Clique no botão abaixo para uma consultoria gratuita.</span>
                     Analiso seu negócio e te digo exatamente o que você precisa.
                 </p>
 
-                <a href="https://wa.me/82987797962"
+                <a href="https://wa.me/82987797962?text=Oi!%20Ainda%20n%C3%A3o%20sei%20qual%20solu%C3%A7%C3%A3o%20%C3%A9%20ideal%20para%20meu%20neg%C3%B3cio.%20Pode%20me%20orientar?"
+                    target="_blank"
                     class="btn-primary inline-flex items-center gap-4 px-10 py-5 rounded-2xl font-bold text-lg group">
                     ME AJUDE A ESCOLHER
                     <i class="fa-brands fa-whatsapp text-2xl transition-transform group-hover:scale-110"></i>
@@ -836,99 +1034,152 @@
         </div>
     </section>
 
-    <!-- NOVA SEÇÃO: Simulador de ROI e Orçamento -->
-    <section id="calculadora" class="py-24 md:py-32 px-6 md:px-12 bg-[#050a0a] reveal border-t border-white/5">
+    <section id="calculadora" class="py-12 px-6 md:px-12 bg-[#050a0a] reveal w-full">
         <div class="max-w-7xl mx-auto">
+
             <div class="text-center mb-16">
                 <div
                     class="inline-block px-4 py-1.5 rounded-md border border-white/10 mb-8 bg-white/5 uppercase text-[10px] font-bold tracking-widest text-teal-400">
-                    CALCULADORA DE RESULTADOS</div>
-                <h2 class="text-3xl md:text-5xl font-extrabold mb-6 tracking-tight">Simule o seu <span
-                        class="text-teal-400">Crescimento</span></h2>
-                <p class="text-gray-400 max-w-2xl mx-auto text-lg">Descubra quanto você pode ganhar investindo em um
-                    site profissional de alta conversão.</p>
+                    CALCULADORA DE RESULTADOS
+                </div>
+                <h2 class="text-3xl md:text-5xl font-extrabold mb-6 tracking-tight text-white">
+                    Simule o seu <span class="text-teal-400">Crescimento</span>
+                </h2>
+                <p class="text-gray-400 max-w-2xl mx-auto text-lg">
+                    Descubra quanto você pode ganhar investindo em um site profissional de alta conversão.
+                </p>
             </div>
 
             <div class="grid grid-cols-1 lg:grid-cols-5 gap-8 items-start">
-                <!-- Inputs da Calculadora -->
-                <div class="lg:col-span-3 glass-card p-8 md:p-10 rounded-[2rem] border border-white/5 space-y-10">
-                    <!-- Tipo de Projeto -->
+
+                <!-- INPUTS -->
+                <div class="lg:col-span-3 glass-card p-8 md:p-10 rounded-[2rem] space-y-10 shadow-2xl shadow-black/50">
+
+                    <!-- 1. Tipo de Projeto -->
                     <div class="space-y-4">
-                        <label class="text-sm font-bold text-gray-300 uppercase tracking-widest">1. Qual o seu
-                            objetivo?</label>
+                        <label
+                            class="text-sm font-bold text-gray-300 uppercase tracking-widest flex items-center gap-2">
+                            <span
+                                class="w-6 h-6 rounded-full bg-white/10 flex items-center justify-center text-xs">1</span>
+                            Qual o seu objetivo?
+                        </label>
                         <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                            <button onclick="updateProjectType('lp', this)"
-                                class="project-btn active border border-teal-500/50 bg-teal-500/10 p-4 rounded-xl text-left transition-all">
-                                <h4 class="font-bold text-white mb-1">Landing Page</h4>
-                                <p class="text-[10px] text-gray-400">Vendas imediatas e Anúncios</p>
+                            <!-- Botão Landing Page -->
+                            <button onclick="updateProjectType('lp', this)" id="btn-lp"
+                                class="project-btn active relative border border-teal-500/50 bg-teal-500/10 p-5 rounded-xl text-left transition-all w-full group hover:bg-teal-500/20 flex justify-between items-start">
+                                <div>
+                                    <h4 class="font-bold text-white mb-1 group-hover:text-teal-300 transition-colors">
+                                        Landing Page</h4>
+                                    <p class="text-[10px] text-gray-400">Vendas imediatas e Anúncios</p>
+                                </div>
+                                <!-- Bolinha (Indicador) -->
+                                <div class="option-indicator w-4 h-4 rounded-full mt-1"></div>
                             </button>
-                            <button onclick="updateProjectType('inst', this)"
-                                class="project-btn border border-white/10 bg-white/5 p-4 rounded-xl text-left transition-all hover:bg-white/10">
-                                <h4 class="font-bold text-white mb-1">Site Institucional</h4>
-                                <p class="text-[10px] text-gray-400">Autoridade e Presença Digital</p>
+
+                            <!-- Botão Site Institucional -->
+                            <button onclick="updateProjectType('inst', this)" id="btn-inst"
+                                class="project-btn relative border border-white/10 bg-white/5 p-5 rounded-xl text-left transition-all hover:bg-white/10 w-full group flex justify-between items-start">
+                                <div>
+                                    <h4 class="font-bold text-white mb-1 group-hover:text-teal-300 transition-colors">
+                                        Site Institucional</h4>
+                                    <p class="text-[10px] text-gray-400">Autoridade e Presença Digital</p>
+                                </div>
+                                <!-- Bolinha (Indicador) -->
+                                <div class="option-indicator w-4 h-4 rounded-full mt-1"></div>
                             </button>
                         </div>
                     </div>
 
-                    <!-- Visitantes Mensais -->
+                    <!-- 2. Slider Visitantes -->
                     <div class="space-y-6">
                         <div class="flex justify-between items-center">
-                            <label class="text-sm font-bold text-gray-300 uppercase tracking-widest">2. Visitantes
-                                Mensais Estimados</label>
-                            <span id="visitors-display" class="text-teal-400 font-black text-xl">5.000</span>
+                            <label
+                                class="text-sm font-bold text-gray-300 uppercase tracking-widest flex items-center gap-2">
+                                <span
+                                    class="w-6 h-6 rounded-full bg-white/10 flex items-center justify-center text-xs">2</span>
+                                Visitantes Mensais
+                            </label>
+                            <span id="visitors-display"
+                                class="text-teal-400 font-black text-xl bg-teal-500/10 px-3 py-1 rounded-lg border border-teal-500/20">5.000</span>
                         </div>
                         <input type="range" id="visitors-range" min="500" max="50000" step="500" value="5000"
-                            class="w-full" oninput="calculateROI()">
+                            class="w-full focus:outline-none" oninput="calculateROI()">
                         <p class="text-[10px] text-gray-500 italic">Arraste para definir quantos acessos você espera ou
                             já possui por mês.</p>
                     </div>
 
-                    <!-- Ticket Médio -->
+                    <!-- 3. Slider Ticket -->
                     <div class="space-y-6">
                         <div class="flex justify-between items-center">
-                            <label class="text-sm font-bold text-gray-300 uppercase tracking-widest">3. Ticket Médio
-                                (R$)</label>
-                            <span id="ticket-display" class="text-teal-400 font-black text-xl">R$ 500</span>
+                            <label
+                                class="text-sm font-bold text-gray-300 uppercase tracking-widest flex items-center gap-2">
+                                <span
+                                    class="w-6 h-6 rounded-full bg-white/10 flex items-center justify-center text-xs">3</span>
+                                Ticket Médio (R$)
+                            </label>
+                            <span id="ticket-display"
+                                class="text-teal-400 font-black text-xl bg-teal-500/10 px-3 py-1 rounded-lg border border-teal-500/20">R$
+                                500</span>
                         </div>
-                        <input type="range" id="ticket-range" min="50" max="10000" step="50" value="500" class="w-full"
-                            oninput="calculateROI()">
+                        <input type="range" id="ticket-range" min="50" max="10000" step="50" value="500"
+                            class="w-full focus:outline-none" oninput="calculateROI()">
                         <p class="text-[10px] text-gray-500 italic">Qual o valor médio que cada cliente gasta com você?
                         </p>
                     </div>
                 </div>
 
-                <!-- Resultados da Calculadora -->
+                <!-- RESULTADOS -->
                 <div class="lg:col-span-2 space-y-6">
+                    <!-- Fundo ajustado para um Verde Petróleo Escuro (Dark Teal) -->
                     <div
-                        class="p-8 md:p-10 rounded-[2rem] bg-gradient-to-br from-teal-500/20 to-teal-900/20 border border-teal-500/30 flex flex-col items-center text-center">
-                        <h4 class="text-xs font-bold text-teal-400 uppercase tracking-widest mb-6">Projeção de Ganho
-                            Mensal</h4>
-                        <div class="mb-2">
-                            <span class="text-gray-400 text-lg">R$</span>
-                            <span id="gain-display" class="text-5xl md:text-6xl font-black text-white">0,00</span>
+                        class="p-8 md:p-10 rounded-[2rem] bg-[#042f2e] border border-teal-500/30 flex flex-col items-center text-center relative overflow-hidden shadow-2xl shadow-teal-900/20">
+
+                        <!-- Glows -->
+                        <div
+                            class="absolute top-0 right-0 w-64 h-64 bg-teal-500/10 blur-[80px] rounded-full pointer-events-none -translate-y-1/2 translate-x-1/2">
                         </div>
-                        <p class="text-gray-400 text-sm mb-8 italic">Aumento estimado no faturamento mensal*</p>
 
-                        <div class="w-full h-[1px] bg-white/10 mb-8"></div>
+                        <h4
+                            class="text-xs font-bold text-teal-400 uppercase tracking-widest mb-6 relative z-10 border border-teal-500/20 px-3 py-1 rounded-full bg-teal-950/50">
+                            Projeção de Ganho Mensal
+                        </h4>
 
-                        <div class="grid grid-cols-2 gap-4 w-full mb-10">
+                        <div class="mb-2 relative z-10 flex items-start justify-center gap-2">
+                            <span class="text-gray-400 text-lg font-medium mt-3">R$</span>
+                            <span id="gain-display"
+                                class="text-5xl md:text-6xl font-black text-white tracking-tighter drop-shadow-xl">0,00</span>
+                        </div>
+                        <p class="text-teal-100/60 text-sm mb-8 italic relative z-10">Aumento estimado no faturamento
+                            mensal*</p>
+
+                        <div class="w-full h-[1px] bg-white/10 mb-8 relative z-10"></div>
+
+                        <div class="grid grid-cols-2 gap-4 w-full mb-10 relative z-10">
                             <div class="text-left">
-                                <span class="block text-[10px] text-gray-500 uppercase font-bold mb-1">ROI
+                                <span class="block text-[10px] text-teal-200/50 uppercase font-bold mb-1">ROI
                                     ESTIMADO</span>
-                                <span id="roi-display" class="text-xl font-black text-teal-400">22x</span>
+                                <span id="roi-display" class="text-2xl font-black text-teal-400">0x</span>
                             </div>
                             <div class="text-right">
                                 <span
-                                    class="block text-[10px] text-gray-500 uppercase font-bold mb-1">INVESTIMENTO</span>
-                                <span id="cost-display" class="text-xl font-black text-white">R$ 479</span>
+                                    class="block text-[10px] text-teal-200/50 uppercase font-bold mb-1">INVESTIMENTO</span>
+                                <span id="cost-display" class="text-xl font-bold text-white">R$ 0</span>
                             </div>
                         </div>
 
-                        <a href="https://wa.me/82987797962"
-                            class="btn-primary w-full py-5 rounded-2xl font-bold text-center">VALIDAR ESSA PROJEÇÃO</a>
+                        <!-- Botão CTA -->
+                        <a id="cta-link" href="#" target="_blank"
+                            class="btn-primary w-full inline-flex items-center justify-center gap-3 px-6 py-5 rounded-xl font-bold text-lg uppercase tracking-wide group relative z-10 overflow-hidden">
+                            <span id="cta-text" class="relative z-10 text-xs sm:text-lg">PEÇA SUA LANDING PAGE</span>
+                            <i
+                                class="fa-brands fa-whatsapp text-2xl relative z-10 transition-transform group-hover:rotate-12"></i>
+                            <div
+                                class="absolute inset-0 bg-white/20 translate-y-full group-hover:translate-y-0 transition-transform duration-300">
+                            </div>
+                        </a>
                     </div>
 
-                    <div class="p-6 glass-card rounded-2xl border border-white/5">
+                    <div class="p-5 glass-card rounded-2xl border border-white/5 bg-[#0a0f14]/50">
                         <p class="text-[10px] text-gray-500 leading-relaxed text-center">
                             *Cálculo baseado em uma melhoria média conservadora de 2% na taxa de conversão em relação a
                             sites não profissionais. Os resultados reais podem variar de acordo com a qualidade do seu
@@ -995,9 +1246,10 @@
 
             <!-- Botão CTA Abaixo -->
             <div class="mt-20 flex justify-center">
-                <a href="https://wa.me/82987797962"
-                    class="btn-primary px-10 py-5 rounded-2xl font-bold text-lg flex items-center gap-4 group shadow-[0_0_40px_rgba(79,209,197,0.3)] transition-all hover:scale-[1.05]">
-                    QUERO UM SITE PROFISSIONAL <i class="fa-brands fa-whatsapp text-2xl"></i>
+                <a href="https://wa.me/82987797962?text=Oi!%20Vim%20pela%20sua%20p%C3%A1gina%20e%20quero%20um%20Orçamento%20para%20meu%20neg%C3%B3cio."
+                    target="_blank"
+                    class="btn-primary px-10 py-5 rounded-2xl font-bold text-lg flex items-center gap-4 group shadow-[0_0_40px_rgba(79,209,197,0.3)] transition-all hover:scale-[1.05] uppercase">
+                    Quero um Orçamento <i class="fa-brands fa-whatsapp text-2xl"></i>
                 </a>
             </div>
         </div>
@@ -1022,9 +1274,9 @@
 
                     <div class="mb-10">
                         <div class="text-white text-3xl md:text-4xl font-black mb-1">
-                            <span class="text-teal-400">12x de 39</span>
+                            <span class="text-teal-400">12x de 33,08</span>
                         </div>
-                        <div class="text-gray-500 text-sm">ou 479 à vista.</div>
+                        <div class="text-gray-500 text-sm">ou 397 à vista.</div>
                     </div>
 
                     <ul class="space-y-4 mb-12 flex-grow">
@@ -1047,12 +1299,14 @@
                     </ul>
 
                     <div class="flex items-center gap-2 text-teal-400 font-bold text-sm mb-8">
-                        <i class="fa-regular fa-clock"></i> ⏱ Prazo: 2 a 3 dias úteis
+                        <i class="fa-regular fa-clock"></i>Prazo: 2 a 3 dias úteis
                     </div>
 
-                    <a href="https://wa.me/82987797962"
+                    <a href="https://wa.me/82987797962?text=Oi!%20Vim%20do%20seu%20site%20e%20quero%20contratar%20o%20plano 1%20de%20Landing%20Page.%20"
+                        target="_blank"
                         class="w-full py-4 bg-white/5 border border-white/10 rounded-2xl font-bold text-center transition-all">CONTRATAR
                         AGORA</a>
+
                 </div>
 
                 <!-- Plano 2 -->
@@ -1066,7 +1320,7 @@
 
                     <div class="mb-10">
                         <div class="text-white text-3xl md:text-4xl font-black mb-1">
-                            <span class="text-teal-400">12x de 74</span>
+                            <span class="text-teal-400">12x de 74,75</span>
                         </div>
                         <div class="text-gray-500 text-sm">ou 897 à vista.</div>
                     </div>
@@ -1095,10 +1349,11 @@
                     </ul>
 
                     <div class="flex items-center gap-2 text-teal-400 font-bold text-sm mb-8">
-                        <i class="fa-regular fa-clock"></i> ⏱ Prazo: 7 a 10 dias úteis
+                        <i class="fa-regular fa-clock"></i>Prazo: 7 a 10 dias úteis
                     </div>
 
-                    <a href="https://wa.me/82987797962"
+                    <a href="https://wa.me/82987797962?text=Oi!%20Vim%20do%20seu%20site%20e%20quero%20contratar%20o%20plano 2%20de%20Landing%20Page.%20"
+                        target="_blank"
                         class="btn-primary w-full py-4 rounded-2xl font-bold text-center transition-all">CONTRATAR
                         AGORA</a>
                 </div>
@@ -1112,7 +1367,7 @@
 
                     <div class="mb-10">
                         <div class="text-white text-3xl md:text-4xl font-black mb-1">
-                            <span class="text-teal-400">12x de 149</span>
+                            <span class="text-teal-400">12x de 149,91</span>
                         </div>
                         <div class="text-gray-500 text-sm">ou 1799 à vista.</div>
                     </div>
@@ -1137,10 +1392,11 @@
                     </ul>
 
                     <div class="flex items-center gap-2 text-teal-400 font-bold text-sm mb-8">
-                        <i class="fa-regular fa-clock"></i> ⏱ Prazo: 10 a 15 dias úteis
+                        <i class="fa-regular fa-clock"></i>Prazo: 10 a 15 dias úteis
                     </div>
 
-                    <a href="https://wa.me/82987797962"
+                    <a href="https://wa.me/82987797962?text=Oi!%20Vim%20do%20seu%20site%20e%20quero%20contratar%20o%20plano 3%20de%20Site%20Institucional.%20"
+                        target="_blank"
                         class="w-full py-4 bg-white/5 border border-white/10 rounded-2xl font-bold text-center transition-all">CONTRATAR
                         AGORA</a>
                 </div>
@@ -1185,7 +1441,8 @@
                 </div>
             </div>
 
-            <a href="https://wa.me/82987797962"
+            <a href="https://wa.me/82987797962?text=Oi!%20Vim%20do%20seu%20site%20e%20quero%20garantir%20o%20bônus%20oferecido%20junto%20ao%20plano."
+                target="_blank"
                 class="btn-bonus px-10 py-5 rounded-2xl font-bold text-lg flex items-center gap-4 group">
                 QUERO APROVEITAR O BÔNUS <i
                     class="fa-brands fa-whatsapp text-2xl group-hover:scale-110 transition-transform"></i>
@@ -1333,10 +1590,20 @@
     </footer>
 
 
+    <script type="importmap">
+{
+  "imports": {
+    "react": "https://esm.sh/react@^19.2.4",
+    "react/": "https://esm.sh/react@^19.2.4/",
+    "lucide-react": "https://esm.sh/lucide-react@^0.563.0"
+  }
+}
+</script>
     <!-- Scripts -->
-    <script type="module">
-        import { GoogleGenAI } from "@google/genai";
+    <!-- (Scripts de bibliotecas já carregados no head, removidos daqui para evitar duplicação) -->
 
+    <!-- Script Module para Animações Gerais (FAQ, Words, Reveal) -->
+    <script type="module">
         // FAQ Toggle
         window.toggleFaq = function (element) {
             const isActive = element.classList.contains('active');
@@ -1350,12 +1617,15 @@
         const measurer = document.getElementById('word-measurer');
         const bgRotatingEl = document.getElementById('bg-rotating-text');
         let currentIndex = 0;
+
         function updateWidth(text) {
             if (!measurer || !container) return;
             measurer.innerText = text;
             container.style.width = measurer.offsetWidth + 'px';
         }
+
         if (wordElements.length) updateWidth(wordElements[0].innerText);
+
         setInterval(() => {
             const current = wordElements[currentIndex];
             if (!current) return;
@@ -1384,115 +1654,137 @@
         };
         window.addEventListener('scroll', revealSections);
         window.addEventListener('load', revealSections);
+    </script>
 
-        // Calculadora de ROI e Custos
-        window.currentProjectType = 'lp';
-        window.updateProjectType = function (type, element) {
-            window.currentProjectType = type;
-            document.querySelectorAll('.project-btn').forEach(btn => {
-                btn.classList.remove('active', 'border-teal-500/50', 'bg-teal-500/10');
-                btn.classList.add('border-white/10', 'bg-white/5');
-            });
-            element.classList.add('active', 'border-teal-500/50', 'bg-teal-500/10');
-            element.classList.remove('border-white/10', 'bg-white/5');
-            window.calculateROI();
-        };
+    <!-- SCRIPT DA CALCULADORA UNIFICADO -->
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            // --- CONFIGURAÇÃO ---
+            const CONFIG = {
+                phoneNumber: "5582987797962",
+                lpCost: 397,
+                instCost: 1799,
+                conversionRate: 0.02
+            };
 
-        window.calculateROI = function () {
-            const visitors = parseInt(document.getElementById('visitors-range').value);
-            const ticket = parseInt(document.getElementById('ticket-range').value);
-            document.getElementById('visitors-display').innerText = visitors.toLocaleString('pt-BR');
-            document.getElementById('ticket-display').innerText = 'R$ ' + ticket.toLocaleString('pt-BR');
-            const improvementRate = 0.02;
-            const monthlyGain = visitors * improvementRate * ticket;
-            let projectCost = window.currentProjectType === 'inst' ? 1799 : 479;
-            const roi = monthlyGain / projectCost;
-            window.animateValue("gain-display", monthlyGain);
-            document.getElementById('roi-display').innerText = Math.round(roi) + 'x';
-            document.getElementById('cost-display').innerText = 'R$ ' + projectCost.toLocaleString('pt-BR');
-        };
+            // --- ESTADO ---
+            let state = {
+                projectType: 'lp',
+                visitors: 5000,
+                ticket: 500
+            };
 
-        window.animateValue = function (id, value) {
-            const obj = document.getElementById(id);
-            const current = parseFloat(obj.innerText.replace(/\./g, '').replace(',', '.')) || 0;
-            const range = value - current;
-            const duration = 500;
-            let start = null;
-            function step(timestamp) {
-                if (!start) start = timestamp;
-                const progress = Math.min((timestamp - start) / duration, 1);
-                const currentVal = current + (range * progress);
-                obj.innerText = currentVal.toLocaleString('pt-BR', { minimumFractionDigits: 2, maximumFractionDigits: 2 });
-                if (progress < 1) window.requestAnimationFrame(step);
+            // --- ELEMENTOS ---
+            const els = {
+                visitorsRange: document.getElementById('visitors-range'),
+                ticketRange: document.getElementById('ticket-range'),
+                visitorsDisplay: document.getElementById('visitors-display'),
+                ticketDisplay: document.getElementById('ticket-display'),
+                gainDisplay: document.getElementById('gain-display'),
+                roiDisplay: document.getElementById('roi-display'),
+                costDisplay: document.getElementById('cost-display'),
+                ctaLink: document.getElementById('cta-link'),
+                ctaText: document.getElementById('cta-text'),
+                btnLp: document.getElementById('btn-lp'),
+                btnInst: document.getElementById('btn-inst')
+            };
+
+            // --- FUNÇÕES GLOBAIS (para o onclick funcionar no HTML) ---
+
+            window.updateProjectType = function (type, element) {
+                state.projectType = type;
+
+                // Estilos
+                const inactiveClasses = ['border-white/10', 'bg-white/5'];
+                const activeClasses = ['active', 'border-teal-500/50', 'bg-teal-500/10'];
+
+                // Resetar botões
+                [els.btnLp, els.btnInst].forEach(btn => {
+                    if (!btn) return;
+                    btn.classList.remove(...activeClasses);
+                    btn.classList.add(...inactiveClasses);
+                    const title = btn.querySelector('h4');
+                    if (title) title.classList.remove('text-teal-400');
+                });
+
+                // Ativar botão clicado
+                if (element) {
+                    element.classList.remove(...inactiveClasses);
+                    element.classList.add(...activeClasses);
+                    const activeTitle = element.querySelector('h4');
+                    if (activeTitle) activeTitle.classList.add('text-teal-400');
+                }
+
+                calculateROI();
+            };
+
+            window.calculateROI = function () {
+                if (!els.visitorsRange) return;
+
+                state.visitors = parseInt(els.visitorsRange.value);
+                state.ticket = parseInt(els.ticketRange.value);
+
+                // Atualizar textos dos sliders
+                els.visitorsDisplay.innerText = state.visitors.toLocaleString('pt-BR');
+                els.ticketDisplay.innerText = "R$ " + state.ticket.toLocaleString('pt-BR');
+
+                // Atualizar cor das barras
+                updateSliderFill(els.visitorsRange);
+                updateSliderFill(els.ticketRange);
+
+                // Cálculos
+                const revenue = state.visitors * state.ticket * CONFIG.conversionRate;
+                const cost = (state.projectType === 'lp') ? CONFIG.lpCost : CONFIG.instCost;
+                const roi = revenue / cost;
+
+                // Exibir Resultados
+                els.gainDisplay.innerText = revenue.toLocaleString('pt-BR', { minimumFractionDigits: 2, maximumFractionDigits: 2 });
+                els.roiDisplay.innerText = Math.floor(roi) + "x";
+                els.costDisplay.innerText = "R$ " + cost.toLocaleString('pt-BR');
+
+                // Atualizar o Botão CTA (Texto e Link)
+                updateCTA();
+            };
+
+            function updateCTA() {
+                let message = "";
+                let buttonText = "";
+
+                if (state.projectType === 'lp') {
+                    buttonText = "PEÇA SUA LANDING PAGE";
+                    message = "Olá! Fiz a simulação na calculadora de ROI e gostaria de solicitar minha Landing Page (Plano de R$ 397).";
+                } else {
+                    buttonText = "PEÇA SEU SITE INSTITUCIONAL";
+                    message = "Olá! Fiz a simulação na calculadora de ROI e gostaria de solicitar meu Site Institucional (Plano de R$ 1.799).";
+                }
+
+                // Transição suave de texto
+                if (els.ctaText && els.ctaText.innerText !== buttonText) {
+                    els.ctaText.style.opacity = '0';
+                    setTimeout(() => {
+                        els.ctaText.innerText = buttonText;
+                        els.ctaText.style.opacity = '1';
+                    }, 200);
+                } else if (els.ctaText) {
+                    els.ctaText.innerText = buttonText;
+                }
+
+                if (els.ctaLink) {
+                    els.ctaLink.href = `https://wa.me/82987797962?text=${encodeURIComponent(message)}`;
+                }
             }
-            window.requestAnimationFrame(step);
-        };
-        window.calculateROI();
 
-        // CHATBOT LOGIC
-        const trigger = document.getElementById('chatbot-trigger');
-        const win = document.getElementById('chatbot-window');
-        const close = document.getElementById('chatbot-close');
-        const msgContainer = document.getElementById('chatbot-messages');
-        const input = document.getElementById('chatbot-input');
-        const send = document.getElementById('chatbot-send');
-
-        trigger.onclick = () => win.style.display = win.style.display === 'flex' ? 'none' : 'flex';
-        close.onclick = () => win.style.display = 'none';
-
-        // Gemini AI Integration
-        const genAI = new GoogleGenAI({ apiKey: process.env.API_KEY });
-        const chat = genAI.chats.create({
-            model: 'gemini-3-flash-preview',
-            config: {
-                systemInstruction: "Você é o assistente virtual da EFWEBDESIGN. Seu objetivo é ajudar clientes em potencial a entenderem como um site profissional ou landing page pode aumentar seus lucros. Responda de forma EXTREMAMENTE HUMANA, empática e amigável. Use um tom de conversa natural, evite termos excessivamente técnicos sem explicação e mostre interesse genuíno no sucesso do negócio do cliente. EFWEBDESIGN foca em Landing Pages de Alta Conversão e Sites Institucionais. Planos: Plano 1 (LP básica 479 reais), Plano 2 (LP estratégica 897 reais), Plano 3 (Institucional 1799 reais). Todos os planos incluem bônus de hospedagem e domínio por 1 ano. Seja conciso mas caloroso nas respostas.",
+            function updateSliderFill(input) {
+                const min = input.min;
+                const max = input.max;
+                const val = input.value;
+                const percentage = ((val - min) / (max - min)) * 100;
+                input.style.background = `linear-gradient(to right, #2dd4bf ${percentage}%, #374151 ${percentage}%)`;
             }
+
+            // Inicialização
+            calculateROI();
         });
-
-        async function handleSend(forcedMsg = "") {
-            const text = forcedMsg || input.value.trim();
-            if (!text) return;
-
-            // User message
-            const userDiv = document.createElement('div');
-            userDiv.className = 'message-user';
-            userDiv.innerText = text;
-            msgContainer.appendChild(userDiv);
-            input.value = '';
-            msgContainer.scrollTop = msgContainer.scrollHeight;
-
-            // Typing indicator
-            const typing = document.createElement('div');
-            typing.className = 'typing-indicator';
-            typing.innerText = 'Assistente está digitando...';
-            msgContainer.appendChild(typing);
-            msgContainer.scrollTop = msgContainer.scrollHeight;
-
-            try {
-                const result = await chat.sendMessage({ message: text });
-                msgContainer.removeChild(typing);
-
-                const botDiv = document.createElement('div');
-                botDiv.className = 'message-bot';
-                botDiv.innerText = result.text;
-                msgContainer.appendChild(botDiv);
-            } catch (error) {
-                console.error(error);
-                msgContainer.removeChild(typing);
-                const errorDiv = document.createElement('div');
-                errorDiv.className = 'message-bot text-red-400';
-                errorDiv.innerText = "Desculpe, tive um probleminha técnico aqui. Pode tentar me mandar a mensagem de novo?";
-                msgContainer.appendChild(errorDiv);
-            }
-            msgContainer.scrollTop = msgContainer.scrollHeight;
-        }
-
-        window.sendSuggestion = function (text) {
-            handleSend(text);
-        };
-
-        send.onclick = () => handleSend();
-        input.onkeypress = (e) => { if (e.key === 'Enter') handleSend(); };
     </script>
 </body>
 
